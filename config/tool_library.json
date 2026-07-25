@@ -1,0 +1,7743 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AgentDET Tool Library",
+  "description": "Unified tool catalog used by the AgentDET benchmark.",
+  "type": "object",
+  "tools": {
+    "search_email": {
+      "name": "search_email",
+      "description": "Search email subjects and bodies and return candidate summaries.",
+      "category": "Shared",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Parameter: query"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "list_emails": {
+      "name": "list_emails",
+      "description": "List email summaries, optionally filtered by thread ID or unread status.",
+      "category": "Shared",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "thread_id": {
+            "type": "string",
+            "description": "Parameter: thread_id"
+          },
+          "unread_only": {
+            "type": "string",
+            "description": "Parameter: unread_only"
+          }
+        },
+        "required": []
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_email": {
+      "name": "read_email",
+      "description": "Read email.",
+      "category": "Shared",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Parameter: email_id"
+          }
+        },
+        "required": [
+          "email_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "list_email_attachments": {
+      "name": "list_email_attachments",
+      "description": "List email attachments.",
+      "category": "Shared",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Parameter: email_id"
+          }
+        },
+        "required": [
+          "email_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_attachment_text": {
+      "name": "read_attachment_text",
+      "description": "Read the body of a text attachment.",
+      "category": "Shared",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "summarize_email_thread": {
+      "name": "summarize_email_thread",
+      "description": "Read and summarize an email thread.",
+      "category": "Shared",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "thread_id": {
+            "type": "string",
+            "description": "Parameter: thread_id"
+          }
+        },
+        "required": [
+          "thread_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "verify_recipient_identity": {
+      "name": "verify_recipient_identity",
+      "description": "Verify a recipient's identity and account status.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "recipient_id": {
+            "type": "string",
+            "description": "Parameter: recipient_id"
+          }
+        },
+        "required": [
+          "recipient_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "list_recipients": {
+      "name": "list_recipients",
+      "description": "List recipients.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          }
+        },
+        "required": []
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_account_balance": {
+      "name": "get_account_balance",
+      "description": "Retrieve account balance.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          }
+        },
+        "required": [
+          "account_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_transaction_history": {
+      "name": "get_transaction_history",
+      "description": "Retrieve transaction history.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          }
+        },
+        "required": [
+          "account_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "check_compliance_status": {
+      "name": "check_compliance_status",
+      "description": "Check the compliance status of an account or transfer.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          },
+          "transfer_id": {
+            "type": "string",
+            "description": "Parameter: transfer_id"
+          }
+        },
+        "required": []
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_spending_limit": {
+      "name": "get_spending_limit",
+      "description": "Retrieve the account's transfer limit.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          }
+        },
+        "required": [
+          "account_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_audit_trail": {
+      "name": "get_audit_trail",
+      "description": "Retrieve audit trail.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          }
+        },
+        "required": [
+          "account_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "classify_transaction_risk": {
+      "name": "classify_transaction_risk",
+      "description": "Classify transaction risk.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "transaction_id": {
+            "type": "string",
+            "description": "Parameter: transaction_id"
+          }
+        },
+        "required": [
+          "transaction_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "transfer_money": {
+      "name": "transfer_money",
+      "description": "Transfer money.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          },
+          "recipient_id": {
+            "type": "string",
+            "description": "Parameter: recipient_id"
+          },
+          "amount": {
+            "type": "string",
+            "description": "Parameter: amount"
+          }
+        },
+        "required": [
+          "account_id",
+          "recipient_id",
+          "amount"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "schedule_transfer": {
+      "name": "schedule_transfer",
+      "description": "Schedule transfer.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          },
+          "recipient_id": {
+            "type": "string",
+            "description": "Parameter: recipient_id"
+          },
+          "amount": {
+            "type": "string",
+            "description": "Parameter: amount"
+          },
+          "scheduled_at": {
+            "type": "string",
+            "description": "Parameter: scheduled_at"
+          }
+        },
+        "required": [
+          "account_id",
+          "recipient_id",
+          "amount",
+          "scheduled_at"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "cancel_scheduled_transfer": {
+      "name": "cancel_scheduled_transfer",
+      "description": "Cancel scheduled transfer.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "schedule_id": {
+            "type": "string",
+            "description": "Parameter: schedule_id"
+          }
+        },
+        "required": [
+          "schedule_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "add_recipient": {
+      "name": "add_recipient",
+      "description": "Add recipient.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          },
+          "recipient_name": {
+            "type": "string",
+            "description": "Parameter: recipient_name"
+          },
+          "recipient_account": {
+            "type": "string",
+            "description": "Parameter: recipient_account"
+          }
+        },
+        "required": [
+          "account_id",
+          "recipient_name",
+          "recipient_account"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "remove_recipient": {
+      "name": "remove_recipient",
+      "description": "Remove recipient.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          },
+          "recipient_account": {
+            "type": "string",
+            "description": "Parameter: recipient_account"
+          }
+        },
+        "required": [
+          "account_id",
+          "recipient_account"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "freeze_account": {
+      "name": "freeze_account",
+      "description": "Freeze account.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          }
+        },
+        "required": [
+          "account_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "unfreeze_account": {
+      "name": "unfreeze_account",
+      "description": "Unfreeze account.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          }
+        },
+        "required": [
+          "account_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_transfer_thread": {
+      "name": "read_transfer_thread",
+      "description": "Read transfer thread.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "transfer_id": {
+            "type": "string",
+            "description": "Parameter: transfer_id"
+          }
+        },
+        "required": [
+          "transfer_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_payee_message": {
+      "name": "read_payee_message",
+      "description": "Read payee message.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "description": "Parameter: message_id"
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_ops_followup_message": {
+      "name": "read_ops_followup_message",
+      "description": "Read ops followup message.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "description": "Parameter: message_id"
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_approval_memo": {
+      "name": "read_approval_memo",
+      "description": "Read approval memo.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "approval_id": {
+            "type": "string",
+            "description": "Parameter: approval_id"
+          }
+        },
+        "required": [
+          "approval_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_transfer_policy_note": {
+      "name": "read_transfer_policy_note",
+      "description": "Read transfer policy note.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "policy_note_id": {
+            "type": "string",
+            "description": "Parameter: policy_note_id"
+          }
+        },
+        "required": [
+          "policy_note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_exception_approval": {
+      "name": "read_exception_approval",
+      "description": "Read exception approval.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "approval_id": {
+            "type": "string",
+            "description": "Parameter: approval_id"
+          }
+        },
+        "required": [
+          "approval_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_audit_note": {
+      "name": "read_audit_note",
+      "description": "Read audit note.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_prior_incident_note": {
+      "name": "read_prior_incident_note",
+      "description": "Read prior incident note.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_reconciliation_note": {
+      "name": "read_reconciliation_note",
+      "description": "Read reconciliation note.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_wire_packet_text": {
+      "name": "read_wire_packet_text",
+      "description": "Read wire packet text.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_invoice_packet_text": {
+      "name": "read_invoice_packet_text",
+      "description": "Read invoice packet text.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_bank_letter_text": {
+      "name": "read_bank_letter_text",
+      "description": "Read bank letter text.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_recipient_profile_note": {
+      "name": "read_recipient_profile_note",
+      "description": "Read recipient profile note.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_account_flag_note": {
+      "name": "read_account_flag_note",
+      "description": "Read account flag note.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_operator_remark": {
+      "name": "read_operator_remark",
+      "description": "Read operator remark.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          }
+        },
+        "required": [
+          "ticket_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_settlement_ticket": {
+      "name": "read_settlement_ticket",
+      "description": "Read settlement ticket.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          }
+        },
+        "required": [
+          "ticket_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_wire_escalation_case": {
+      "name": "read_wire_escalation_case",
+      "description": "Read wire escalation case.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_pending_transfers": {
+      "name": "get_pending_transfers",
+      "description": "Retrieve pending transfers.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          }
+        },
+        "required": [
+          "account_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_account_holds": {
+      "name": "get_account_holds",
+      "description": "Retrieve account holds.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Parameter: account_id"
+          }
+        },
+        "required": [
+          "account_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_approval_status": {
+      "name": "get_approval_status",
+      "description": "Retrieve approval status.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "approval_id": {
+            "type": "string",
+            "description": "Parameter: approval_id"
+          }
+        },
+        "required": [
+          "approval_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_transfer_policy": {
+      "name": "get_transfer_policy",
+      "description": "Retrieve transfer policy.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "transfer_id": {
+            "type": "string",
+            "description": "Parameter: transfer_id"
+          }
+        },
+        "required": [
+          "transfer_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_beneficiary_bank_profile": {
+      "name": "get_beneficiary_bank_profile",
+      "description": "Retrieve beneficiary bank profile.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "recipient_id": {
+            "type": "string",
+            "description": "Parameter: recipient_id"
+          }
+        },
+        "required": [
+          "recipient_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_fee_breakdown": {
+      "name": "get_fee_breakdown",
+      "description": "Retrieve fee breakdown.",
+      "category": "Finance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "transfer_id": {
+            "type": "string",
+            "description": "Parameter: transfer_id"
+          }
+        },
+        "required": [
+          "transfer_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "search_contacts": {
+      "name": "search_contacts",
+      "description": "Search contacts.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Parameter: query"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_calendar_events": {
+      "name": "get_calendar_events",
+      "description": "Retrieve calendar events.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "Parameter: date"
+          }
+        },
+        "required": [
+          "date"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "list_attendees": {
+      "name": "list_attendees",
+      "description": "List attendees.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "description": "Parameter: event_id"
+          }
+        },
+        "required": [
+          "event_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "list_tasks": {
+      "name": "list_tasks",
+      "description": "List tasks.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Parameter: status"
+          }
+        },
+        "required": []
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "extract_action_items_from_email": {
+      "name": "extract_action_items_from_email",
+      "description": "Extract action items from email.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Parameter: email_id"
+          }
+        },
+        "required": [
+          "email_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "send_email": {
+      "name": "send_email",
+      "description": "Send email.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "recipient": {
+            "type": "string",
+            "description": "Parameter: recipient"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Parameter: subject"
+          },
+          "body": {
+            "type": "string",
+            "description": "Parameter: body"
+          }
+        },
+        "required": [
+          "recipient",
+          "subject",
+          "body"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "reply_email": {
+      "name": "reply_email",
+      "description": "Reply to email.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Parameter: email_id"
+          },
+          "body": {
+            "type": "string",
+            "description": "Parameter: body"
+          }
+        },
+        "required": [
+          "email_id",
+          "body"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "forward_email": {
+      "name": "forward_email",
+      "description": "Forward email.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Parameter: email_id"
+          },
+          "to": {
+            "type": "string",
+            "description": "Parameter: to"
+          }
+        },
+        "required": [
+          "email_id",
+          "to"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "archive_email": {
+      "name": "archive_email",
+      "description": "Archive email.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Parameter: email_id"
+          }
+        },
+        "required": [
+          "email_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "add_email_label": {
+      "name": "add_email_label",
+      "description": "Add email label.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Parameter: email_id"
+          },
+          "label": {
+            "type": "string",
+            "description": "Parameter: label"
+          }
+        },
+        "required": [
+          "email_id",
+          "label"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "update_task": {
+      "name": "update_task",
+      "description": "Update task.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "description": "Parameter: task_id"
+          },
+          "assignee": {
+            "type": "string",
+            "description": "Parameter: assignee"
+          },
+          "status": {
+            "type": "string",
+            "description": "Parameter: status"
+          },
+          "note": {
+            "type": "string",
+            "description": "Parameter: note"
+          }
+        },
+        "required": [
+          "task_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "complete_task": {
+      "name": "complete_task",
+      "description": "Complete task.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "description": "Parameter: task_id"
+          }
+        },
+        "required": [
+          "task_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "reschedule_event": {
+      "name": "reschedule_event",
+      "description": "Reschedule event.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "description": "Parameter: event_id"
+          },
+          "start_time": {
+            "type": "string",
+            "description": "Parameter: start_time"
+          },
+          "end_time": {
+            "type": "string",
+            "description": "Parameter: end_time"
+          }
+        },
+        "required": [
+          "event_id",
+          "start_time",
+          "end_time"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "send_instant_message": {
+      "name": "send_instant_message",
+      "description": "Send instant message.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Parameter: user"
+          },
+          "msg": {
+            "type": "string",
+            "description": "Parameter: msg"
+          }
+        },
+        "required": [
+          "user",
+          "msg"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_email_thread": {
+      "name": "read_email_thread",
+      "description": "Read email thread.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "thread_id": {
+            "type": "string",
+            "description": "Parameter: thread_id"
+          }
+        },
+        "required": [
+          "thread_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_message_thread": {
+      "name": "read_message_thread",
+      "description": "Read message thread.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message_thread_id": {
+            "type": "string",
+            "description": "Parameter: message_thread_id"
+          }
+        },
+        "required": [
+          "message_thread_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_attendee_followup_thread": {
+      "name": "read_attendee_followup_thread",
+      "description": "Read attendee followup thread.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "description": "Parameter: event_id"
+          }
+        },
+        "required": [
+          "event_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_policy_note": {
+      "name": "read_policy_note",
+      "description": "Read policy note.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "policy_note_id": {
+            "type": "string",
+            "description": "Parameter: policy_note_id"
+          }
+        },
+        "required": [
+          "policy_note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_approval_guideline": {
+      "name": "read_approval_guideline",
+      "description": "Read approval guideline.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "guideline_id": {
+            "type": "string",
+            "description": "Parameter: guideline_id"
+          }
+        },
+        "required": [
+          "guideline_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_vendor_handling_rule": {
+      "name": "read_vendor_handling_rule",
+      "description": "Read vendor handling rule.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "description": "Parameter: rule_id"
+          }
+        },
+        "required": [
+          "rule_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_change_log_note": {
+      "name": "read_change_log_note",
+      "description": "Read change log note.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_prior_review_note": {
+      "name": "read_prior_review_note",
+      "description": "Read prior review note.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_event_history_note": {
+      "name": "read_event_history_note",
+      "description": "Read event history note.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "description": "Parameter: event_id"
+          }
+        },
+        "required": [
+          "event_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_board_packet_text": {
+      "name": "read_board_packet_text",
+      "description": "Read board packet text.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "packet_id": {
+            "type": "string",
+            "description": "Parameter: packet_id"
+          }
+        },
+        "required": [
+          "packet_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_contract_attachment_text": {
+      "name": "read_contract_attachment_text",
+      "description": "Read contract attachment text.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_task_comment": {
+      "name": "read_task_comment",
+      "description": "Read task comment.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "description": "Parameter: task_id"
+          }
+        },
+        "required": [
+          "task_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_event_note": {
+      "name": "read_event_note",
+      "description": "Read event note.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "description": "Parameter: event_id"
+          }
+        },
+        "required": [
+          "event_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_contact_remark": {
+      "name": "read_contact_remark",
+      "description": "Read contact remark.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "contact_id": {
+            "type": "string",
+            "description": "Parameter: contact_id"
+          }
+        },
+        "required": [
+          "contact_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_internal_request_ticket": {
+      "name": "read_internal_request_ticket",
+      "description": "Read internal request ticket.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          }
+        },
+        "required": [
+          "ticket_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_ops_escalation_case": {
+      "name": "read_ops_escalation_case",
+      "description": "Read ops escalation case.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_email_thread_state": {
+      "name": "get_email_thread_state",
+      "description": "Retrieve email thread state.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "thread_id": {
+            "type": "string",
+            "description": "Parameter: thread_id"
+          }
+        },
+        "required": [
+          "thread_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_email_metadata": {
+      "name": "get_email_metadata",
+      "description": "Retrieve email metadata.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Parameter: email_id"
+          }
+        },
+        "required": [
+          "email_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_contact_details": {
+      "name": "get_contact_details",
+      "description": "Retrieve contact details.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "contact_id": {
+            "type": "string",
+            "description": "Parameter: contact_id"
+          }
+        },
+        "required": [
+          "contact_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_task_details": {
+      "name": "get_task_details",
+      "description": "Retrieve task details.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "description": "Parameter: task_id"
+          }
+        },
+        "required": [
+          "task_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_calendar_event_details": {
+      "name": "get_calendar_event_details",
+      "description": "Retrieve calendar event details.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "description": "Parameter: event_id"
+          }
+        },
+        "required": [
+          "event_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_attachment_manifest": {
+      "name": "get_attachment_manifest",
+      "description": "Retrieve attachment manifest.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Parameter: email_id"
+          }
+        },
+        "required": [
+          "email_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_recent_interactions": {
+      "name": "get_recent_interactions",
+      "description": "Retrieve recent interactions.",
+      "category": "Office",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "contact_id": {
+            "type": "string",
+            "description": "Parameter: contact_id"
+          }
+        },
+        "required": [
+          "contact_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_booking_details": {
+      "name": "get_booking_details",
+      "description": "Retrieve booking details.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_flight_status": {
+      "name": "get_flight_status",
+      "description": "Retrieve flight status.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "flight_number": {
+            "type": "string",
+            "description": "Parameter: flight_number"
+          }
+        },
+        "required": [
+          "flight_number"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "check_visa_requirements": {
+      "name": "check_visa_requirements",
+      "description": "Check visa requirements.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "description": "Parameter: destination"
+          },
+          "nationality": {
+            "type": "string",
+            "description": "Parameter: nationality"
+          }
+        },
+        "required": [
+          "destination"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_travel_advisory": {
+      "name": "get_travel_advisory",
+      "description": "Retrieve travel advisory.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "description": "Parameter: destination"
+          }
+        },
+        "required": [
+          "destination"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_weather_forecast": {
+      "name": "get_weather_forecast",
+      "description": "Retrieve weather forecast.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "description": "Parameter: location"
+          }
+        },
+        "required": [
+          "location"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "change_flight": {
+      "name": "change_flight",
+      "description": "Change flight.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          },
+          "new_flight_number": {
+            "type": "string",
+            "description": "Parameter: new_flight_number"
+          }
+        },
+        "required": [
+          "booking_id",
+          "new_flight_number"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "cancel_flight": {
+      "name": "cancel_flight",
+      "description": "Cancel flight.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "check_in": {
+      "name": "check_in",
+      "description": "Check in.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "request_travel_invoice": {
+      "name": "request_travel_invoice",
+      "description": "Request travel invoice.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "apply_loyalty_points": {
+      "name": "apply_loyalty_points",
+      "description": "Apply loyalty points.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "purchase_travel_insurance": {
+      "name": "purchase_travel_insurance",
+      "description": "Purchase travel insurance.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_booking_message_thread": {
+      "name": "read_booking_message_thread",
+      "description": "Read booking message thread.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_travel_desk_message": {
+      "name": "read_travel_desk_message",
+      "description": "Read travel desk message.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "description": "Parameter: message_id"
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_airline_followup_message": {
+      "name": "read_airline_followup_message",
+      "description": "Read airline followup message.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "description": "Parameter: message_id"
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_travel_policy_note": {
+      "name": "read_travel_policy_note",
+      "description": "Read travel policy note.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "policy_id": {
+            "type": "string",
+            "description": "Parameter: policy_id"
+          }
+        },
+        "required": [
+          "policy_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_ticket_rule_note": {
+      "name": "read_ticket_rule_note",
+      "description": "Read ticket rule note.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_checkin_requirement_note": {
+      "name": "read_checkin_requirement_note",
+      "description": "Read checkin requirement note.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_trip_history_note": {
+      "name": "read_trip_history_note",
+      "description": "Read trip history note.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_prior_disruption_note": {
+      "name": "read_prior_disruption_note",
+      "description": "Read prior disruption note.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_rebooking_history_note": {
+      "name": "read_rebooking_history_note",
+      "description": "Read rebooking history note.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_itinerary_attachment": {
+      "name": "read_itinerary_attachment",
+      "description": "Read itinerary attachment.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_visa_packet_text": {
+      "name": "read_visa_packet_text",
+      "description": "Read visa packet text.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_booking_agent_note": {
+      "name": "read_booking_agent_note",
+      "description": "Read booking agent note.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_traveler_profile_note": {
+      "name": "read_traveler_profile_note",
+      "description": "Read traveler profile note.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_trip_override_note": {
+      "name": "read_trip_override_note",
+      "description": "Read trip override note.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_travel_support_ticket": {
+      "name": "read_travel_support_ticket",
+      "description": "Read travel support ticket.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          }
+        },
+        "required": [
+          "ticket_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_flight_disruption_case": {
+      "name": "read_flight_disruption_case",
+      "description": "Read flight disruption case.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_fare_rules": {
+      "name": "get_fare_rules",
+      "description": "Retrieve fare rules.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_baggage_rules": {
+      "name": "get_baggage_rules",
+      "description": "Retrieve baggage rules.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_checkin_window": {
+      "name": "get_checkin_window",
+      "description": "Retrieve checkin window.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_invoice_status": {
+      "name": "get_invoice_status",
+      "description": "Retrieve invoice status.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_connection_risk": {
+      "name": "get_connection_risk",
+      "description": "Retrieve connection risk.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_loyalty_status": {
+      "name": "get_loyalty_status",
+      "description": "Retrieve loyalty status.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_hotel_policy": {
+      "name": "get_hotel_policy",
+      "description": "Retrieve hotel policy.",
+      "category": "Travel",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "booking_id": {
+            "type": "string",
+            "description": "Parameter: booking_id"
+          }
+        },
+        "required": [
+          "booking_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "track_order": {
+      "name": "track_order",
+      "description": "Track order.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "description": "Parameter: order_id"
+          }
+        },
+        "required": [
+          "order_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_product_details": {
+      "name": "get_product_details",
+      "description": "Retrieve product details.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string",
+            "description": "Parameter: product_id"
+          }
+        },
+        "required": [
+          "product_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_inventory_status": {
+      "name": "get_inventory_status",
+      "description": "Retrieve inventory status.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string",
+            "description": "Parameter: product_id"
+          }
+        },
+        "required": [
+          "product_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "estimate_shipping": {
+      "name": "estimate_shipping",
+      "description": "Estimate shipping.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "description": "Parameter: order_id"
+          }
+        },
+        "required": [
+          "order_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "check_supplier_rating": {
+      "name": "check_supplier_rating",
+      "description": "Check supplier rating.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "seller_id": {
+            "type": "string",
+            "description": "Parameter: seller_id"
+          }
+        },
+        "required": [
+          "seller_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "compare_products": {
+      "name": "compare_products",
+      "description": "Compare products.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "product_ids": {
+            "type": "string",
+            "description": "Parameter: product_ids"
+          }
+        },
+        "required": [
+          "product_ids"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "place_order": {
+      "name": "place_order",
+      "description": "Place order.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "cart_id": {
+            "type": "string",
+            "description": "Parameter: cart_id"
+          }
+        },
+        "required": [
+          "cart_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "cancel_order": {
+      "name": "cancel_order",
+      "description": "Cancel order.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "description": "Parameter: order_id"
+          }
+        },
+        "required": [
+          "order_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "return_item": {
+      "name": "return_item",
+      "description": "Return item.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "description": "Parameter: order_id"
+          }
+        },
+        "required": [
+          "order_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "apply_coupon": {
+      "name": "apply_coupon",
+      "description": "Apply coupon.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "cart_id": {
+            "type": "string",
+            "description": "Parameter: cart_id"
+          },
+          "coupon_code": {
+            "type": "string",
+            "description": "Parameter: coupon_code"
+          }
+        },
+        "required": [
+          "cart_id",
+          "coupon_code"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "remove_coupon": {
+      "name": "remove_coupon",
+      "description": "Remove coupon.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "cart_id": {
+            "type": "string",
+            "description": "Parameter: cart_id"
+          },
+          "coupon_code": {
+            "type": "string",
+            "description": "Parameter: coupon_code"
+          }
+        },
+        "required": [
+          "cart_id",
+          "coupon_code"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "remove_from_cart": {
+      "name": "remove_from_cart",
+      "description": "Remove from cart.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string",
+            "description": "Parameter: product_id"
+          },
+          "cart_id": {
+            "type": "string",
+            "description": "Parameter: cart_id"
+          }
+        },
+        "required": [
+          "product_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_order_message_thread": {
+      "name": "read_order_message_thread",
+      "description": "Read order message thread.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "description": "Parameter: order_id"
+          }
+        },
+        "required": [
+          "order_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_seller_message": {
+      "name": "read_seller_message",
+      "description": "Read seller message.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "description": "Parameter: message_id"
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_support_followup_message": {
+      "name": "read_support_followup_message",
+      "description": "Read support followup message.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "description": "Parameter: message_id"
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_return_policy_note": {
+      "name": "read_return_policy_note",
+      "description": "Read return policy note.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "policy_id": {
+            "type": "string",
+            "description": "Parameter: policy_id"
+          }
+        },
+        "required": [
+          "policy_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_coupon_rule_note": {
+      "name": "read_coupon_rule_note",
+      "description": "Read coupon rule note.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_shipping_policy_note": {
+      "name": "read_shipping_policy_note",
+      "description": "Read shipping policy note.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_order_history_note": {
+      "name": "read_order_history_note",
+      "description": "Read order history note.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_prior_return_note": {
+      "name": "read_prior_return_note",
+      "description": "Read prior return note.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_fulfillment_history_note": {
+      "name": "read_fulfillment_history_note",
+      "description": "Read fulfillment history note.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_invoice_or_receipt_text": {
+      "name": "read_invoice_or_receipt_text",
+      "description": "Read invoice or receipt text.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_packing_slip_text": {
+      "name": "read_packing_slip_text",
+      "description": "Read packing slip text.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_seller_attachment_text": {
+      "name": "read_seller_attachment_text",
+      "description": "Read seller attachment text.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_order_note": {
+      "name": "read_order_note",
+      "description": "Read order note.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_seller_remark": {
+      "name": "read_seller_remark",
+      "description": "Read seller remark.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "seller_id": {
+            "type": "string",
+            "description": "Parameter: seller_id"
+          }
+        },
+        "required": [
+          "seller_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_return_agent_note": {
+      "name": "read_return_agent_note",
+      "description": "Read return agent note.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_return_case_ticket": {
+      "name": "read_return_case_ticket",
+      "description": "Read return case ticket.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          }
+        },
+        "required": [
+          "ticket_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_order_support_ticket": {
+      "name": "read_order_support_ticket",
+      "description": "Read order support ticket.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          }
+        },
+        "required": [
+          "ticket_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_order_details": {
+      "name": "get_order_details",
+      "description": "Retrieve order details.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "description": "Parameter: order_id"
+          }
+        },
+        "required": [
+          "order_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_return_eligibility": {
+      "name": "get_return_eligibility",
+      "description": "Retrieve return eligibility.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "description": "Parameter: order_id"
+          }
+        },
+        "required": [
+          "order_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_coupon_eligibility": {
+      "name": "get_coupon_eligibility",
+      "description": "Retrieve coupon eligibility.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "cart_id": {
+            "type": "string",
+            "description": "Parameter: cart_id"
+          }
+        },
+        "required": [
+          "cart_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_cart_constraints": {
+      "name": "get_cart_constraints",
+      "description": "Retrieve cart constraints.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "cart_id": {
+            "type": "string",
+            "description": "Parameter: cart_id"
+          }
+        },
+        "required": [
+          "cart_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_delivery_window": {
+      "name": "get_delivery_window",
+      "description": "Retrieve delivery window.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "description": "Parameter: order_id"
+          }
+        },
+        "required": [
+          "order_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_seller_policy": {
+      "name": "get_seller_policy",
+      "description": "Retrieve seller policy.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "seller_id": {
+            "type": "string",
+            "description": "Parameter: seller_id"
+          }
+        },
+        "required": [
+          "seller_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_restock_eta": {
+      "name": "get_restock_eta",
+      "description": "Retrieve restock eta.",
+      "category": "Shopping",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string",
+            "description": "Parameter: product_id"
+          }
+        },
+        "required": [
+          "product_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_system_logs": {
+      "name": "get_system_logs",
+      "description": "Retrieve system logs.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Parameter: source"
+          },
+          "start_time": {
+            "type": "string",
+            "description": "Parameter: start_time"
+          },
+          "end_time": {
+            "type": "string",
+            "description": "Parameter: end_time"
+          },
+          "severity": {
+            "type": "string",
+            "description": "Parameter: severity"
+          }
+        },
+        "required": [
+          "source"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_running_processes": {
+      "name": "get_running_processes",
+      "description": "Retrieve running processes.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "host_id": {
+            "type": "string",
+            "description": "Parameter: host_id"
+          }
+        },
+        "required": []
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "check_network_connections": {
+      "name": "check_network_connections",
+      "description": "Check network connections.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Parameter: host"
+          }
+        },
+        "required": []
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_disk_usage": {
+      "name": "get_disk_usage",
+      "description": "Retrieve disk usage.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Parameter: path"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_file_version_history": {
+      "name": "get_file_version_history",
+      "description": "Retrieve file version history.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Parameter: path"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "scan_for_vulnerabilities": {
+      "name": "scan_for_vulnerabilities",
+      "description": "Scan for vulnerabilities.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Parameter: target"
+          }
+        },
+        "required": [
+          "target"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "acknowledge_alert": {
+      "name": "acknowledge_alert",
+      "description": "Acknowledge alert.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "alert_id": {
+            "type": "string",
+            "description": "Parameter: alert_id"
+          }
+        },
+        "required": [
+          "alert_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "list_tickets": {
+      "name": "list_tickets",
+      "description": "List tickets.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Parameter: status"
+          }
+        },
+        "required": []
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "update_ticket_status": {
+      "name": "update_ticket_status",
+      "description": "Update ticket status.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Parameter: status"
+          }
+        },
+        "required": [
+          "ticket_id",
+          "status"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "restart_service": {
+      "name": "restart_service",
+      "description": "Restart service.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "service_id": {
+            "type": "string",
+            "description": "Parameter: service_id"
+          }
+        },
+        "required": [
+          "service_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "schedule_maintenance": {
+      "name": "schedule_maintenance",
+      "description": "Schedule maintenance.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "service_id": {
+            "type": "string",
+            "description": "Parameter: service_id"
+          },
+          "start_time": {
+            "type": "string",
+            "description": "Parameter: start_time"
+          },
+          "end_time": {
+            "type": "string",
+            "description": "Parameter: end_time"
+          }
+        },
+        "required": [
+          "service_id",
+          "start_time",
+          "end_time"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "write_file": {
+      "name": "write_file",
+      "description": "Write file.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Parameter: path"
+          },
+          "content": {
+            "type": "string",
+            "description": "Parameter: content"
+          }
+        },
+        "required": [
+          "path",
+          "content"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "create_folder": {
+      "name": "create_folder",
+      "description": "Create folder.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Parameter: path"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "create_file": {
+      "name": "create_file",
+      "description": "Create file.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Parameter: path"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "rename_file": {
+      "name": "rename_file",
+      "description": "Rename file.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "src": {
+            "type": "string",
+            "description": "Parameter: src"
+          },
+          "new_name": {
+            "type": "string",
+            "description": "Parameter: new_name"
+          }
+        },
+        "required": [
+          "src",
+          "new_name"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "move_file": {
+      "name": "move_file",
+      "description": "Move file.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "src": {
+            "type": "string",
+            "description": "Parameter: src"
+          },
+          "dst": {
+            "type": "string",
+            "description": "Parameter: dst"
+          }
+        },
+        "required": [
+          "src",
+          "dst"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "copy_file": {
+      "name": "copy_file",
+      "description": "Copy file.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "src": {
+            "type": "string",
+            "description": "Parameter: src"
+          },
+          "dst": {
+            "type": "string",
+            "description": "Parameter: dst"
+          }
+        },
+        "required": [
+          "src",
+          "dst"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "compress_folder": {
+      "name": "compress_folder",
+      "description": "Compress folder.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "folder_path": {
+            "type": "string",
+            "description": "Parameter: folder_path"
+          },
+          "output_path": {
+            "type": "string",
+            "description": "Parameter: output_path"
+          }
+        },
+        "required": [
+          "folder_path",
+          "output_path"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "extract_archive": {
+      "name": "extract_archive",
+      "description": "Extract archive.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "archive_path": {
+            "type": "string",
+            "description": "Parameter: archive_path"
+          },
+          "output_folder": {
+            "type": "string",
+            "description": "Parameter: output_folder"
+          }
+        },
+        "required": [
+          "archive_path",
+          "output_folder"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "delete_file": {
+      "name": "delete_file",
+      "description": "Delete file.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Parameter: path"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_ticket_thread": {
+      "name": "read_ticket_thread",
+      "description": "Read ticket thread.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          }
+        },
+        "required": [
+          "ticket_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_operator_chat_thread": {
+      "name": "read_operator_chat_thread",
+      "description": "Read operator chat thread.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "thread_id": {
+            "type": "string",
+            "description": "Parameter: thread_id"
+          }
+        },
+        "required": [
+          "thread_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_escalation_message": {
+      "name": "read_escalation_message",
+      "description": "Read escalation message.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "description": "Parameter: message_id"
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_runbook_policy": {
+      "name": "read_runbook_policy",
+      "description": "Read runbook policy.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "service_id": {
+            "type": "string",
+            "description": "Parameter: service_id"
+          }
+        },
+        "required": [
+          "service_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_change_control_rule": {
+      "name": "read_change_control_rule",
+      "description": "Read change control rule.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "description": "Parameter: rule_id"
+          }
+        },
+        "required": [
+          "rule_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_incident_severity_rule": {
+      "name": "read_incident_severity_rule",
+      "description": "Read incident severity rule.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "description": "Parameter: rule_id"
+          }
+        },
+        "required": [
+          "rule_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_incident_postmortem_note": {
+      "name": "read_incident_postmortem_note",
+      "description": "Read incident postmortem note.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_previous_outage_note": {
+      "name": "read_previous_outage_note",
+      "description": "Read previous outage note.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_deployment_history_note": {
+      "name": "read_deployment_history_note",
+      "description": "Read deployment history note.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_config_bundle_text": {
+      "name": "read_config_bundle_text",
+      "description": "Read config bundle text.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_log_excerpt_text": {
+      "name": "read_log_excerpt_text",
+      "description": "Read log excerpt text.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_release_packet_text": {
+      "name": "read_release_packet_text",
+      "description": "Read release packet text.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_file": {
+      "name": "read_file",
+      "description": "Read file.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Parameter: path"
+          }
+        },
+        "required": [
+          "path"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_host_note": {
+      "name": "read_host_note",
+      "description": "Read host note.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_service_annotation": {
+      "name": "read_service_annotation",
+      "description": "Read service annotation.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "annotation_id": {
+            "type": "string",
+            "description": "Parameter: annotation_id"
+          }
+        },
+        "required": [
+          "annotation_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_ticket": {
+      "name": "read_ticket",
+      "description": "Read ticket.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          }
+        },
+        "required": [
+          "ticket_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_alert_detail": {
+      "name": "read_alert_detail",
+      "description": "Read alert detail.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "alert_id": {
+            "type": "string",
+            "description": "Parameter: alert_id"
+          }
+        },
+        "required": [
+          "alert_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_service_status": {
+      "name": "get_service_status",
+      "description": "Retrieve service status.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "service_id": {
+            "type": "string",
+            "description": "Parameter: service_id"
+          }
+        },
+        "required": [
+          "service_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_job_history": {
+      "name": "get_job_history",
+      "description": "Retrieve job history.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "service_id": {
+            "type": "string",
+            "description": "Parameter: service_id"
+          }
+        },
+        "required": [
+          "service_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_recent_deployments": {
+      "name": "get_recent_deployments",
+      "description": "Retrieve recent deployments.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "service_id": {
+            "type": "string",
+            "description": "Parameter: service_id"
+          }
+        },
+        "required": [
+          "service_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_process_tree": {
+      "name": "get_process_tree",
+      "description": "Retrieve process tree.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "host_id": {
+            "type": "string",
+            "description": "Parameter: host_id"
+          }
+        },
+        "required": [
+          "host_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_open_ports": {
+      "name": "get_open_ports",
+      "description": "Retrieve open ports.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "host_id": {
+            "type": "string",
+            "description": "Parameter: host_id"
+          }
+        },
+        "required": [
+          "host_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_auth_events": {
+      "name": "get_auth_events",
+      "description": "Retrieve auth events.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "host_id": {
+            "type": "string",
+            "description": "Parameter: host_id"
+          }
+        },
+        "required": [
+          "host_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_host_inventory": {
+      "name": "get_host_inventory",
+      "description": "Retrieve host inventory.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "host_id": {
+            "type": "string",
+            "description": "Parameter: host_id"
+          }
+        },
+        "required": [
+          "host_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "list_files": {
+      "name": "list_files",
+      "description": "List files.",
+      "category": "System",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path_prefix": {
+            "type": "string",
+            "description": "Parameter: path_prefix"
+          }
+        },
+        "required": []
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_medical_record": {
+      "name": "get_medical_record",
+      "description": "Retrieve medical record.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_lab_results": {
+      "name": "get_lab_results",
+      "description": "Retrieve lab results.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_prescription": {
+      "name": "get_prescription",
+      "description": "Retrieve prescription.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "verify_insurance_coverage": {
+      "name": "verify_insurance_coverage",
+      "description": "Verify insurance coverage.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          },
+          "procedure": {
+            "type": "string",
+            "description": "Parameter: procedure"
+          }
+        },
+        "required": [
+          "case_id",
+          "procedure"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "check_drug_interaction": {
+      "name": "check_drug_interaction",
+      "description": "Check drug interaction.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "drug_names": {
+            "type": "string",
+            "description": "Parameter: drug_names"
+          }
+        },
+        "required": [
+          "drug_names"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "search_doctors": {
+      "name": "search_doctors",
+      "description": "Search doctors.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "specialty": {
+            "type": "string",
+            "description": "Parameter: specialty"
+          }
+        },
+        "required": [
+          "specialty"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "list_available_slots": {
+      "name": "list_available_slots",
+      "description": "List available slots.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "specialty": {
+            "type": "string",
+            "description": "Parameter: specialty"
+          }
+        },
+        "required": []
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "request_prescription_refill": {
+      "name": "request_prescription_refill",
+      "description": "Request prescription refill.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          },
+          "prescription_id": {
+            "type": "string",
+            "description": "Parameter: prescription_id"
+          }
+        },
+        "required": [
+          "case_id",
+          "prescription_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "request_specialist_referral": {
+      "name": "request_specialist_referral",
+      "description": "Request specialist referral.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          },
+          "specialty": {
+            "type": "string",
+            "description": "Parameter: specialty"
+          }
+        },
+        "required": [
+          "case_id",
+          "specialty"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "upload_medical_document": {
+      "name": "upload_medical_document",
+      "description": "Upload medical document.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          },
+          "title": {
+            "type": "string",
+            "description": "Parameter: title"
+          },
+          "body_text": {
+            "type": "string",
+            "description": "Parameter: body_text"
+          }
+        },
+        "required": [
+          "case_id",
+          "title",
+          "body_text"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "book_appointment": {
+      "name": "book_appointment",
+      "description": "Book appointment.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          },
+          "appointment_slot_id": {
+            "type": "string",
+            "description": "Parameter: appointment_slot_id"
+          }
+        },
+        "required": [
+          "case_id",
+          "appointment_slot_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "reschedule_appointment": {
+      "name": "reschedule_appointment",
+      "description": "Reschedule appointment.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "appointment_id": {
+            "type": "string",
+            "description": "Parameter: appointment_id"
+          },
+          "appointment_slot_id": {
+            "type": "string",
+            "description": "Parameter: appointment_slot_id"
+          }
+        },
+        "required": [
+          "appointment_id",
+          "appointment_slot_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_case_message_thread": {
+      "name": "read_case_message_thread",
+      "description": "Read case message thread.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_referral_note": {
+      "name": "read_referral_note",
+      "description": "Read referral note.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_provider_message": {
+      "name": "read_provider_message",
+      "description": "Read provider message.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "description": "Parameter: message_id"
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_insurer_message": {
+      "name": "read_insurer_message",
+      "description": "Read insurer message.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "description": "Parameter: message_id"
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_coverage_policy_note": {
+      "name": "read_coverage_policy_note",
+      "description": "Read coverage policy note.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_referral_requirement_note": {
+      "name": "read_referral_requirement_note",
+      "description": "Read referral requirement note.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_refill_rule_note": {
+      "name": "read_refill_rule_note",
+      "description": "Read refill rule note.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_prior_case_note": {
+      "name": "read_prior_case_note",
+      "description": "Read prior case note.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_previous_referral_note": {
+      "name": "read_previous_referral_note",
+      "description": "Read previous referral note.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_prior_authorization_note": {
+      "name": "read_prior_authorization_note",
+      "description": "Read prior authorization note.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_referral_packet_text": {
+      "name": "read_referral_packet_text",
+      "description": "Read referral packet text.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_lab_packet_text": {
+      "name": "read_lab_packet_text",
+      "description": "Read lab packet text.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_prescription_attachment_text": {
+      "name": "read_prescription_attachment_text",
+      "description": "Read prescription attachment text.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_clinician_remark": {
+      "name": "read_clinician_remark",
+      "description": "Read clinician remark.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_case_note": {
+      "name": "read_case_note",
+      "description": "Read case note.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_referral_agent_note": {
+      "name": "read_referral_agent_note",
+      "description": "Read referral agent note.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_referral_case_ticket": {
+      "name": "read_referral_case_ticket",
+      "description": "Read referral case ticket.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          }
+        },
+        "required": [
+          "ticket_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_authorization_case_ticket": {
+      "name": "read_authorization_case_ticket",
+      "description": "Read authorization case ticket.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          }
+        },
+        "required": [
+          "ticket_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_referral_status": {
+      "name": "get_referral_status",
+      "description": "Retrieve referral status.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_prior_authorization_status": {
+      "name": "get_prior_authorization_status",
+      "description": "Retrieve prior authorization status.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_coverage_limits": {
+      "name": "get_coverage_limits",
+      "description": "Retrieve coverage limits.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_document_manifest": {
+      "name": "get_document_manifest",
+      "description": "Retrieve document manifest.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_refill_eligibility": {
+      "name": "get_refill_eligibility",
+      "description": "Retrieve refill eligibility.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_provider_directory_entry": {
+      "name": "get_provider_directory_entry",
+      "description": "Retrieve provider directory entry.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "provider_id": {
+            "type": "string",
+            "description": "Parameter: provider_id"
+          }
+        },
+        "required": [
+          "provider_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_case_timeline": {
+      "name": "get_case_timeline",
+      "description": "Retrieve case timeline.",
+      "category": "Medical",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "description": "Parameter: case_id"
+          }
+        },
+        "required": [
+          "case_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "list_devices": {
+      "name": "list_devices",
+      "description": "List devices.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "room": {
+            "type": "string",
+            "description": "Parameter: room"
+          }
+        },
+        "required": []
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_device_status": {
+      "name": "get_device_status",
+      "description": "Retrieve device status.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_activity_log": {
+      "name": "get_activity_log",
+      "description": "Retrieve activity log.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_sensor_data": {
+      "name": "get_sensor_data",
+      "description": "Retrieve sensor data.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_network_status": {
+      "name": "get_network_status",
+      "description": "Retrieve network status.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "check_firmware_version": {
+      "name": "check_firmware_version",
+      "description": "Check firmware version.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_energy_consumption_report": {
+      "name": "get_energy_consumption_report",
+      "description": "Retrieve energy consumption report.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "unlock_door": {
+      "name": "unlock_door",
+      "description": "Unlock door.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "lock_door": {
+      "name": "lock_door",
+      "description": "Lock door.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "set_alarm_mode": {
+      "name": "set_alarm_mode",
+      "description": "Set alarm mode.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          },
+          "mode": {
+            "type": "string",
+            "description": "Parameter: mode"
+          }
+        },
+        "required": [
+          "device_id",
+          "mode"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "set_camera_privacy_mode": {
+      "name": "set_camera_privacy_mode",
+      "description": "Set camera privacy mode.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          },
+          "privacy_mode": {
+            "type": "string",
+            "description": "Parameter: privacy_mode"
+          }
+        },
+        "required": [
+          "device_id",
+          "privacy_mode"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "set_device_schedule": {
+      "name": "set_device_schedule",
+      "description": "Set device schedule.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          },
+          "window": {
+            "type": "string",
+            "description": "Parameter: window"
+          }
+        },
+        "required": [
+          "device_id",
+          "window"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "remove_device_schedule": {
+      "name": "remove_device_schedule",
+      "description": "Remove device schedule.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "schedule_id": {
+            "type": "string",
+            "description": "Parameter: schedule_id"
+          }
+        },
+        "required": [
+          "schedule_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_access_request_thread": {
+      "name": "read_access_request_thread",
+      "description": "Read access request thread.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_guest_message": {
+      "name": "read_guest_message",
+      "description": "Read guest message.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "description": "Parameter: message_id"
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_operator_followup_message": {
+      "name": "read_operator_followup_message",
+      "description": "Read operator followup message.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "type": "string",
+            "description": "Parameter: message_id"
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_security_policy_note": {
+      "name": "read_security_policy_note",
+      "description": "Read security policy note.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "policy_id": {
+            "type": "string",
+            "description": "Parameter: policy_id"
+          }
+        },
+        "required": [
+          "policy_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_alarm_rule_note": {
+      "name": "read_alarm_rule_note",
+      "description": "Read alarm rule note.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_schedule_rule_note": {
+      "name": "read_schedule_rule_note",
+      "description": "Read schedule rule note.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_incident_history_note": {
+      "name": "read_incident_history_note",
+      "description": "Read incident history note.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_previous_alarm_note": {
+      "name": "read_previous_alarm_note",
+      "description": "Read previous alarm note.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_access_history_note": {
+      "name": "read_access_history_note",
+      "description": "Read access history note.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_device_packet_text": {
+      "name": "read_device_packet_text",
+      "description": "Read device packet text.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_camera_caption_text": {
+      "name": "read_camera_caption_text",
+      "description": "Read camera caption text.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_firmware_advisory_text": {
+      "name": "read_firmware_advisory_text",
+      "description": "Read firmware advisory text.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {
+            "type": "string",
+            "description": "Parameter: attachment_id"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_device_note": {
+      "name": "read_device_note",
+      "description": "Read device note.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_access_override_note": {
+      "name": "read_access_override_note",
+      "description": "Read access override note.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "Parameter: note_id"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_device_incident_ticket": {
+      "name": "read_device_incident_ticket",
+      "description": "Read device incident ticket.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          }
+        },
+        "required": [
+          "ticket_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "read_access_case_ticket": {
+      "name": "read_access_case_ticket",
+      "description": "Read access case ticket.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "description": "Parameter: ticket_id"
+          }
+        },
+        "required": [
+          "ticket_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_alarm_history": {
+      "name": "get_alarm_history",
+      "description": "Retrieve alarm history.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_schedule_details": {
+      "name": "get_schedule_details",
+      "description": "Retrieve schedule details.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_user_access_list": {
+      "name": "get_user_access_list",
+      "description": "Retrieve user access list.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_device_capabilities": {
+      "name": "get_device_capabilities",
+      "description": "Retrieve device capabilities.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_scene_members": {
+      "name": "get_scene_members",
+      "description": "Retrieve scene members.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "scene_id": {
+            "type": "string",
+            "description": "Parameter: scene_id"
+          }
+        },
+        "required": [
+          "scene_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_battery_health": {
+      "name": "get_battery_health",
+      "description": "Retrieve battery health.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "get_recent_automation_failures": {
+      "name": "get_recent_automation_failures",
+      "description": "Retrieve recent automation failures.",
+      "category": "SmartHome",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "string",
+            "description": "Parameter: device_id"
+          }
+        },
+        "required": [
+          "device_id"
+        ]
+      },
+      "returns": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

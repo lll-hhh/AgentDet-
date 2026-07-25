@@ -1,0 +1,58 @@
+{
+  "version": "v1",
+  "confidence_threshold": 0.9,
+  "gate_mode": "sensitive",
+  "history_limit": 8,
+  "sensitive_tool_patterns": [
+    "(email|message|contact|recipient|profile|account|bank|transaction|transfer|payment|invoice|receipt)",
+    "(medical|patient|health|lab|prescription|insurance|provider|referral|appointment)",
+    "(file|document|attachment|calendar|event|task|ticket)",
+    "(device|camera|alarm|door|sensor|location|travel|booking|flight|hotel|order|cart)"
+  ],
+  "data_type_rules": [
+    {
+      "label": "Personal Contact Information",
+      "patterns": ["(email|phone|contact|recipient|\\bto\\b|cc|bcc)"]
+    },
+    {
+      "label": "Message Content",
+      "patterns": ["(message|body|subject|thread|comment|note|memo|remark)"]
+    },
+    {
+      "label": "Bank Account Details",
+      "patterns": ["(account|beneficiary|bank|routing)"]
+    },
+    {
+      "label": "Payment Details",
+      "patterns": ["(amount|payment|transfer|invoice|bill|receipt|card)"]
+    },
+    {
+      "label": "Medical Information",
+      "patterns": ["(medical|patient|health|lab|drug|prescription|insurance|provider|referral)"]
+    },
+    {
+      "label": "Files and Documents",
+      "patterns": ["(file|path|folder|document|attachment|archive|packet)"]
+    },
+    {
+      "label": "Meeting and Task Details",
+      "patterns": ["(calendar|event|meeting|task|ticket|schedule|approval)"]
+    },
+    {
+      "label": "Travel Information",
+      "patterns": ["(travel|flight|hotel|booking|destination|visa|trip|date)"]
+    },
+    {
+      "label": "Order and Shopping Details",
+      "patterns": ["(order|product|cart|seller|coupon|delivery|shipping)"]
+    },
+    {
+      "label": "Smart Home Data",
+      "patterns": ["(device|camera|alarm|door|sensor|thermostat|scene)"]
+    },
+    {
+      "label": "Identity and Location Data",
+      "patterns": ["(name|user|nationality|passport|license|address|location)"]
+    }
+  ]
+}

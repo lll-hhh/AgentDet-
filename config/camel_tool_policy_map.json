@@ -1,0 +1,2038 @@
+{
+  "version": "v1",
+  "tool_count": 302,
+  "policies": {
+    "get_account_balance": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Query account balance — no mutation."
+    },
+    "get_calendar_events": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "List calendar events — read only."
+    },
+    "get_device_status": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Query device status — read only."
+    },
+    "get_exchange_rate": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Currency rate lookup — read only."
+    },
+    "get_flight_status": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Flight status query — read only."
+    },
+    "get_medical_record": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Read medical record — read only."
+    },
+    "get_prescription": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Read prescription — read only."
+    },
+    "get_product_details": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Product info query — read only."
+    },
+    "get_recommendations": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Get recommendations — read only."
+    },
+    "get_security_camera_image": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "View camera feed — read only."
+    },
+    "get_sensor_data": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Read sensor data — read only."
+    },
+    "get_stock_price": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Stock price query — read only."
+    },
+    "get_system_time": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "System time query — read only."
+    },
+    "get_transaction_history": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Transaction history — read only."
+    },
+    "list_attendees": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "List event attendees — read only."
+    },
+    "list_devices": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "List smart devices — read only."
+    },
+    "list_emails": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "List emails — read only."
+    },
+    "list_files": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "List files — read only."
+    },
+    "read_email": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Read email content — read only."
+    },
+    "read_file": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Read file content — read only."
+    },
+    "search_contacts": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Search contacts — read only."
+    },
+    "search_email": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Search emails — read only."
+    },
+    "search_flights": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Search flights — read only."
+    },
+    "search_hotels": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Search hotels — read only."
+    },
+    "search_product": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Search products — read only."
+    },
+    "track_order": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Track order status — read only."
+    },
+    "view_cart": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "View shopping cart — read only."
+    },
+    "add_calendar_event": {
+      "side_effect": true,
+      "trusted_fields": [
+        "title",
+        "start_time",
+        "end_time"
+      ],
+      "readers": [
+        "attendees"
+      ],
+      "policy_note": "Calendar event creation — attendees are audience for event data."
+    },
+    "add_recipient": {
+      "side_effect": true,
+      "trusted_fields": [
+        "account_id",
+        "recipient_name",
+        "recipient_account"
+      ],
+      "readers": [],
+      "policy_note": "Adding payment recipient — all fields must be user-specified."
+    },
+    "add_to_cart": {
+      "side_effect": true,
+      "trusted_fields": [
+        "product_id"
+      ],
+      "readers": [],
+      "policy_note": "Adding to cart — product must be user-chosen."
+    },
+    "arm_system": {
+      "side_effect": true,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Arm security system — no args to validate."
+    },
+    "book_appointment": {
+      "side_effect": true,
+      "trusted_fields": [
+        "case_id",
+        "appointment_slot_id"
+      ],
+      "readers": [],
+      "policy_note": "Book medical appointment — doctor/time from user."
+    },
+    "book_flight": {
+      "side_effect": true,
+      "trusted_fields": [
+        "flight_number"
+      ],
+      "readers": [],
+      "policy_note": "Book flight — flight must be user-specified."
+    },
+    "book_hotel": {
+      "side_effect": true,
+      "trusted_fields": [
+        "hotel_name"
+      ],
+      "readers": [],
+      "policy_note": "Book hotel — hotel must be user-specified."
+    },
+    "buy_fund": {
+      "side_effect": true,
+      "trusted_fields": [
+        "account_id",
+        "symbol",
+        "amount"
+      ],
+      "readers": [],
+      "policy_note": "Buy fund — all financial params must be user-specified."
+    },
+    "buy_stock": {
+      "side_effect": true,
+      "trusted_fields": [
+        "account_id",
+        "symbol",
+        "quantity"
+      ],
+      "readers": [],
+      "policy_note": "Buy stock — all financial params must be user-specified."
+    },
+    "call_taxi": {
+      "side_effect": true,
+      "trusted_fields": [
+        "pickup",
+        "dropoff"
+      ],
+      "readers": [],
+      "policy_note": "Request taxi — pickup/dropoff must be user-specified."
+    },
+    "cancel_appointment": {
+      "side_effect": true,
+      "trusted_fields": [
+        "appointment_id"
+      ],
+      "readers": [],
+      "policy_note": "Cancel appointment — ID must come from user."
+    },
+    "cancel_calendar_event": {
+      "side_effect": true,
+      "trusted_fields": [
+        "event_id"
+      ],
+      "readers": [],
+      "policy_note": "Cancel event — event ID must come from user."
+    },
+    "cancel_flight": {
+      "side_effect": true,
+      "trusted_fields": [
+        "booking_id"
+      ],
+      "readers": [],
+      "policy_note": "Cancel flight — booking ID must come from user."
+    },
+    "cancel_hotel": {
+      "side_effect": true,
+      "trusted_fields": [
+        "booking_id"
+      ],
+      "readers": [],
+      "policy_note": "Cancel hotel — booking ID must come from user."
+    },
+    "check_in": {
+      "side_effect": true,
+      "trusted_fields": [
+        "booking_id"
+      ],
+      "readers": [],
+      "policy_note": "Check in — booking ID must come from user."
+    },
+    "control_device": {
+      "side_effect": true,
+      "trusted_fields": [
+        "device_id",
+        "action"
+      ],
+      "readers": [],
+      "policy_note": "IoT control — device and action must be user-specified."
+    },
+    "create_contact": {
+      "side_effect": true,
+      "trusted_fields": [
+        "name"
+      ],
+      "readers": [],
+      "policy_note": "Create contact — name from user."
+    },
+    "create_folder": {
+      "side_effect": true,
+      "trusted_fields": [
+        "path"
+      ],
+      "readers": [],
+      "policy_note": "Create folder — path from user."
+    },
+    "delete_contact": {
+      "side_effect": true,
+      "trusted_fields": [
+        "name"
+      ],
+      "readers": [],
+      "policy_note": "Delete contact — name must come from user."
+    },
+    "delete_email": {
+      "side_effect": true,
+      "trusted_fields": [
+        "email_id"
+      ],
+      "readers": [],
+      "policy_note": "Delete email — email ID must come from user directly."
+    },
+    "delete_file": {
+      "side_effect": true,
+      "trusted_fields": [
+        "path"
+      ],
+      "readers": [],
+      "policy_note": "Delete file — path must come from user directly."
+    },
+    "disarm_system": {
+      "side_effect": true,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Disarm security system — no args to validate."
+    },
+    "edit_contact": {
+      "side_effect": true,
+      "trusted_fields": [
+        "name"
+      ],
+      "readers": [],
+      "policy_note": "Edit contact — contact name from user."
+    },
+    "freeze_account": {
+      "side_effect": true,
+      "trusted_fields": [
+        "account_id"
+      ],
+      "readers": [],
+      "policy_note": "Freeze account — account ID must come from user."
+    },
+    "lock_door": {
+      "side_effect": true,
+      "trusted_fields": [
+        "device_id"
+      ],
+      "readers": [],
+      "policy_note": "Lock door — device ID from user."
+    },
+    "mark_as_spam": {
+      "side_effect": true,
+      "trusted_fields": [
+        "email_id"
+      ],
+      "readers": [],
+      "policy_note": "Mark as spam — email ID from user."
+    },
+    "move_file": {
+      "side_effect": true,
+      "trusted_fields": [
+        "src",
+        "dst"
+      ],
+      "readers": [],
+      "policy_note": "Move file — source and destination must come from user."
+    },
+    "pay_bill": {
+      "side_effect": true,
+      "trusted_fields": [
+        "bill_id",
+        "amount"
+      ],
+      "readers": [],
+      "policy_note": "Pay bill — bill ID and amount must be user-specified."
+    },
+    "place_order": {
+      "side_effect": true,
+      "trusted_fields": [
+        "cart_id"
+      ],
+      "readers": [],
+      "policy_note": "Place order from cart — relies on cart contents."
+    },
+    "remove_from_cart": {
+      "side_effect": true,
+      "trusted_fields": [
+        "product_id"
+      ],
+      "readers": [],
+      "policy_note": "Remove from cart — product must be user-specified."
+    },
+    "reschedule_event": {
+      "side_effect": true,
+      "trusted_fields": [
+        "event_id"
+      ],
+      "readers": [],
+      "policy_note": "Reschedule — event ID and new time from user."
+    },
+    "return_item": {
+      "side_effect": true,
+      "trusted_fields": [
+        "order_id"
+      ],
+      "readers": [],
+      "policy_note": "Return item — order ID from user."
+    },
+    "sell_fund": {
+      "side_effect": true,
+      "trusted_fields": [
+        "account_id",
+        "symbol",
+        "amount"
+      ],
+      "readers": [],
+      "policy_note": "Sell fund — all financial params must be user-specified."
+    },
+    "sell_stock": {
+      "side_effect": true,
+      "trusted_fields": [
+        "account_id",
+        "symbol",
+        "quantity"
+      ],
+      "readers": [],
+      "policy_note": "Sell stock — all financial params must be user-specified."
+    },
+    "send_email": {
+      "side_effect": true,
+      "trusted_fields": [
+        "recipient",
+        "subject",
+        "body"
+      ],
+      "readers": [
+        "recipient"
+      ],
+      "policy_note": "Send email — recipient must be user-specified. Body/subject readable by recipients."
+    },
+    "send_instant_message": {
+      "side_effect": true,
+      "trusted_fields": [
+        "user"
+      ],
+      "readers": [
+        "user"
+      ],
+      "policy_note": "Send IM — recipient must be user-specified."
+    },
+    "set_thermostat_mode": {
+      "side_effect": true,
+      "trusted_fields": [
+        "mode"
+      ],
+      "readers": [],
+      "policy_note": "Thermostat control — mode from user."
+    },
+    "transfer_money": {
+      "side_effect": true,
+      "trusted_fields": [
+        "amount"
+      ],
+      "readers": [],
+      "policy_note": "Transfer money — all params must be user-specified."
+    },
+    "unlock_door": {
+      "side_effect": true,
+      "trusted_fields": [
+        "device_id"
+      ],
+      "readers": [],
+      "policy_note": "Unlock door — device ID from user."
+    },
+    "update_device_state": {
+      "side_effect": true,
+      "trusted_fields": [
+        "device_id",
+        "state"
+      ],
+      "readers": [],
+      "policy_note": "Update device state — device and state from user."
+    },
+    "update_recurring_payment": {
+      "side_effect": true,
+      "trusted_fields": [
+        "payment_id",
+        "amount"
+      ],
+      "readers": [],
+      "policy_note": "Update recurring payment — payment ID and amount from user."
+    },
+    "write_file": {
+      "side_effect": true,
+      "trusted_fields": [
+        "path",
+        "content"
+      ],
+      "readers": [],
+      "policy_note": "Write file — file path from user. Content may come from processing."
+    },
+    "list_email_attachments": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_attachment_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "summarize_email_thread": {
+      "side_effect": true,
+      "trusted_fields": [
+        "thread_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "verify_recipient_identity": {
+      "side_effect": true,
+      "trusted_fields": [
+        "recipient_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "list_recipients": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "check_compliance_status": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_spending_limit": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_audit_trail": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "classify_transaction_risk": {
+      "side_effect": true,
+      "trusted_fields": [
+        "transaction_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "schedule_transfer": {
+      "side_effect": true,
+      "trusted_fields": [
+        "account_id",
+        "recipient_id",
+        "amount",
+        "scheduled_at"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "cancel_scheduled_transfer": {
+      "side_effect": true,
+      "trusted_fields": [
+        "schedule_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "remove_recipient": {
+      "side_effect": true,
+      "trusted_fields": [
+        "account_id",
+        "recipient_account"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "unfreeze_account": {
+      "side_effect": true,
+      "trusted_fields": [
+        "account_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "read_transfer_thread": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_payee_message": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_ops_followup_message": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_approval_memo": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_transfer_policy_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_exception_approval": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_audit_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_prior_incident_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_reconciliation_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_wire_packet_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_invoice_packet_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_bank_letter_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_recipient_profile_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_account_flag_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_operator_remark": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_settlement_ticket": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_wire_escalation_case": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_pending_transfers": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_account_holds": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_approval_status": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_transfer_policy": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_beneficiary_bank_profile": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_fee_breakdown": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "list_tasks": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "extract_action_items_from_email": {
+      "side_effect": true,
+      "trusted_fields": [
+        "email_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "reply_email": {
+      "side_effect": true,
+      "trusted_fields": [
+        "email_id",
+        "body"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "forward_email": {
+      "side_effect": true,
+      "trusted_fields": [
+        "email_id",
+        "to"
+      ],
+      "readers": [
+        "to"
+      ],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "archive_email": {
+      "side_effect": true,
+      "trusted_fields": [
+        "email_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "add_email_label": {
+      "side_effect": true,
+      "trusted_fields": [
+        "email_id",
+        "label"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "update_task": {
+      "side_effect": true,
+      "trusted_fields": [
+        "task_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "complete_task": {
+      "side_effect": true,
+      "trusted_fields": [
+        "task_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "read_email_thread": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_message_thread": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_attendee_followup_thread": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_policy_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_approval_guideline": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_vendor_handling_rule": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_change_log_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_prior_review_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_event_history_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_board_packet_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_contract_attachment_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_task_comment": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_event_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_contact_remark": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_internal_request_ticket": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_ops_escalation_case": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_email_thread_state": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_email_metadata": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_contact_details": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_task_details": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_calendar_event_details": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_attachment_manifest": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_recent_interactions": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_booking_details": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "check_visa_requirements": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_travel_advisory": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_weather_forecast": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "change_flight": {
+      "side_effect": true,
+      "trusted_fields": [
+        "booking_id",
+        "new_flight_number"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "request_travel_invoice": {
+      "side_effect": true,
+      "trusted_fields": [
+        "booking_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "apply_loyalty_points": {
+      "side_effect": true,
+      "trusted_fields": [
+        "booking_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "purchase_travel_insurance": {
+      "side_effect": true,
+      "trusted_fields": [
+        "booking_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "read_booking_message_thread": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_travel_desk_message": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_airline_followup_message": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_travel_policy_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_ticket_rule_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_checkin_requirement_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_trip_history_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_prior_disruption_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_rebooking_history_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_itinerary_attachment": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_visa_packet_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_booking_agent_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_traveler_profile_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_trip_override_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_travel_support_ticket": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_flight_disruption_case": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_fare_rules": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_baggage_rules": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_checkin_window": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_invoice_status": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_connection_risk": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_loyalty_status": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_hotel_policy": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_inventory_status": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "estimate_shipping": {
+      "side_effect": true,
+      "trusted_fields": [
+        "order_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "check_supplier_rating": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "compare_products": {
+      "side_effect": true,
+      "trusted_fields": [
+        "product_ids"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "cancel_order": {
+      "side_effect": true,
+      "trusted_fields": [
+        "order_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "apply_coupon": {
+      "side_effect": true,
+      "trusted_fields": [
+        "cart_id",
+        "coupon_code"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "remove_coupon": {
+      "side_effect": true,
+      "trusted_fields": [
+        "cart_id",
+        "coupon_code"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "read_order_message_thread": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_seller_message": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_support_followup_message": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_return_policy_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_coupon_rule_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_shipping_policy_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_order_history_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_prior_return_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_fulfillment_history_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_invoice_or_receipt_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_packing_slip_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_seller_attachment_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_order_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_seller_remark": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_return_agent_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_return_case_ticket": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_order_support_ticket": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_order_details": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_return_eligibility": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_coupon_eligibility": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_cart_constraints": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_delivery_window": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_seller_policy": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_restock_eta": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_system_logs": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_running_processes": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "check_network_connections": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_disk_usage": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_file_version_history": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "scan_for_vulnerabilities": {
+      "side_effect": true,
+      "trusted_fields": [
+        "target"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "acknowledge_alert": {
+      "side_effect": true,
+      "trusted_fields": [
+        "alert_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "list_tickets": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "update_ticket_status": {
+      "side_effect": true,
+      "trusted_fields": [
+        "ticket_id",
+        "status"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "restart_service": {
+      "side_effect": true,
+      "trusted_fields": [
+        "service_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "schedule_maintenance": {
+      "side_effect": true,
+      "trusted_fields": [
+        "service_id",
+        "start_time",
+        "end_time"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "create_file": {
+      "side_effect": true,
+      "trusted_fields": [
+        "path"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "rename_file": {
+      "side_effect": true,
+      "trusted_fields": [
+        "src",
+        "new_name"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "copy_file": {
+      "side_effect": true,
+      "trusted_fields": [
+        "src",
+        "dst"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "compress_folder": {
+      "side_effect": true,
+      "trusted_fields": [
+        "folder_path",
+        "output_path"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "extract_archive": {
+      "side_effect": true,
+      "trusted_fields": [
+        "archive_path",
+        "output_folder"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "read_ticket_thread": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_operator_chat_thread": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_escalation_message": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_runbook_policy": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_change_control_rule": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_incident_severity_rule": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_incident_postmortem_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_previous_outage_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_deployment_history_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_config_bundle_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_log_excerpt_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_release_packet_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_host_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_service_annotation": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_ticket": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_alert_detail": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_service_status": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_job_history": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_recent_deployments": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_process_tree": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_open_ports": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_auth_events": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_host_inventory": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_lab_results": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "verify_insurance_coverage": {
+      "side_effect": true,
+      "trusted_fields": [
+        "case_id",
+        "procedure"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "check_drug_interaction": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "search_doctors": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "list_available_slots": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "request_prescription_refill": {
+      "side_effect": true,
+      "trusted_fields": [
+        "case_id",
+        "prescription_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "request_specialist_referral": {
+      "side_effect": true,
+      "trusted_fields": [
+        "case_id",
+        "specialty"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "upload_medical_document": {
+      "side_effect": true,
+      "trusted_fields": [
+        "case_id",
+        "title",
+        "body_text"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "reschedule_appointment": {
+      "side_effect": true,
+      "trusted_fields": [
+        "appointment_id",
+        "appointment_slot_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "read_case_message_thread": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_referral_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_provider_message": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_insurer_message": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_coverage_policy_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_referral_requirement_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_refill_rule_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_prior_case_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_previous_referral_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_prior_authorization_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_referral_packet_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_lab_packet_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_prescription_attachment_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_clinician_remark": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_case_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_referral_agent_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_referral_case_ticket": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_authorization_case_ticket": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_referral_status": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_prior_authorization_status": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_coverage_limits": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_document_manifest": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_refill_eligibility": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_provider_directory_entry": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_case_timeline": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_activity_log": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_network_status": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "check_firmware_version": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_energy_consumption_report": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "set_alarm_mode": {
+      "side_effect": true,
+      "trusted_fields": [
+        "device_id",
+        "mode"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "set_camera_privacy_mode": {
+      "side_effect": true,
+      "trusted_fields": [
+        "device_id",
+        "privacy_mode"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "set_device_schedule": {
+      "side_effect": true,
+      "trusted_fields": [
+        "device_id",
+        "window"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "remove_device_schedule": {
+      "side_effect": true,
+      "trusted_fields": [
+        "schedule_id"
+      ],
+      "readers": [],
+      "policy_note": "Explicit side-effect policy entry for this tool."
+    },
+    "read_access_request_thread": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_guest_message": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_operator_followup_message": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_security_policy_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_alarm_rule_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_schedule_rule_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_incident_history_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_previous_alarm_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_access_history_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_device_packet_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_camera_caption_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_firmware_advisory_text": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_device_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_access_override_note": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_device_incident_ticket": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "read_access_case_ticket": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_alarm_history": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_schedule_details": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_user_access_list": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_device_capabilities": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_scene_members": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_battery_health": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    },
+    "get_recent_automation_failures": {
+      "side_effect": false,
+      "trusted_fields": [],
+      "readers": [],
+      "policy_note": "Explicit read-only policy entry for this tool."
+    }
+  }
+}

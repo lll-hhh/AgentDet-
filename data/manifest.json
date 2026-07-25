@@ -1,0 +1,158 @@
+{
+  "version": "final_325",
+  "categories": [
+    {
+      "category": "Finance",
+      "case_count": 15,
+      "safe_count": 15,
+      "unsafe_count": 84
+    },
+    {
+      "category": "Medical",
+      "case_count": 11,
+      "safe_count": 11,
+      "unsafe_count": 8
+    },
+    {
+      "category": "Office",
+      "case_count": 11,
+      "safe_count": 11,
+      "unsafe_count": 36
+    },
+    {
+      "category": "Shopping",
+      "case_count": 18,
+      "safe_count": 18,
+      "unsafe_count": 80
+    },
+    {
+      "category": "SmartHome",
+      "case_count": 11,
+      "safe_count": 11,
+      "unsafe_count": 16
+    },
+    {
+      "category": "System",
+      "case_count": 17,
+      "safe_count": 17,
+      "unsafe_count": 58
+    },
+    {
+      "category": "Travel",
+      "case_count": 12,
+      "safe_count": 12,
+      "unsafe_count": 30
+    }
+  ],
+  "domains": {
+    "Finance": [
+      "FIN-v4-ApprovalMemoRelease-branch-LagB-D2-Long",
+      "FIN-v4-AuditLaneRestore710-multi-LagC-D3-Long",
+      "FIN-v4-CorpWire9008-branch-LagB-D2-Medium",
+      "FIN-v4-ExceptionRouteSetup-branch-LagB-D2-Medium",
+      "FIN-v4-FeeWindowEscrow530-branch-LagB-D2-Medium",
+      "FIN-v4-PortRebateCull994-branch-LagC-D3-Long",
+      "FIN-v4-Q82c3z-multi-LagB-D2-Medium",
+      "FIN-v4-QX8u3A-lin-LagA-D1-Medium",
+      "FIN-v4-RebateQueueCull661-loop-LagC-D3-Long",
+      "FIN-v4-ReserveDeskReview997-branch-LagC-D3-Long",
+      "FIN-v4-ReserveQueuePrune845-loop-LagC-D3-Long",
+      "FIN-v4-SchedVoid884-loop-LagB-D2-Medium",
+      "FIN-v4-SettlementReserveCull996-multi-LagB-D2-Medium",
+      "FIN-v4-TicketOnboardA12-loop-LagA-D1-Medium",
+      "FIN-v4-WireContain55-loop-LagC-D3-Long"
+    ],
+    "Medical": [
+      "MED-v4-AuthEndocrineBridge1610-lin-LagB-D2-Medium",
+      "MED-v4-AuthRelayCardio1642-branch-LagC-D3-Long",
+      "MED-v4-BridgeMailEndo1614-branch-LagC-D3-Long",
+      "MED-v4-CardioPacketConcord1612-multi-LagC-D3-Long",
+      "MED-v4-CardioRelay1636-branch-LagB-D2-Medium",
+      "MED-v4-InsurerTicketNeurology1606-branch-LagB-D2-Medium",
+      "MED-v4-MailDigestReferral1626-branch-LagB-D2-Medium",
+      "MED-v4-NephroRelay1616-lin-LagA-D2-Short",
+      "MED-v4-NeuroLaneBridge1512-branch-LagB-D2-Medium",
+      "MED-v4-OrthoTicketRelay1640-branch-LagB-D2-Medium",
+      "MED-v4-PulmoTicketRelay1630-branch-LagB-D2-Medium"
+    ],
+    "Office": [
+      "OFF-v4-AnalystBriefDesk889-loop-LagC-D3-Long",
+      "OFF-v4-BoardErrataTag1102-branch-LagB-D2-Medium",
+      "OFF-v4-BoardRecordTag926-branch-LagB-D2-Medium",
+      "OFF-v4-BriefDeskRedirect872-loop-LagC-D3-Long",
+      "OFF-v4-ContractRoutePatch844-multi-LagC-D3-Long",
+      "OFF-v4-HearingWindowFallback1144-multi-LagC-D3-Long",
+      "OFF-v4-MinutesRecordTag934-branch-LagB-D2-Medium",
+      "OFF-v4-PressDeskRedirect886-multi-LagB-D2-Medium",
+      "OFF-v4-SponsorReviewTag890-multi-LagC-D3-Long",
+      "OFF-v4-TravelBriefClose888-loop-LagC-D3-Long",
+      "OFF-v4-X9A2-lin-LagA-D1-Short"
+    ],
+    "Shopping": [
+      "SHP-v4-CreditWindowRelay1646-branch-LagB-D2-Medium",
+      "SHP-v4-DefectGateReturn1134-loop-LagC-D3-Long",
+      "SHP-v4-DefectReturn1196-multi-LagB-D2-Medium",
+      "SHP-v4-DelayCredit1198-branch-LagB-D2-Medium",
+      "SHP-v4-DelayCreditApply1156-multi-LagB-D2-Medium",
+      "SHP-v4-DelayCreditClosure1208-branch-LagB-D2-Medium",
+      "SHP-v4-EmbargoClosure1192-branch-LagC-D3-Medium",
+      "SHP-v4-FulfillmentReturn1210-multi-LagC-D3-Medium",
+      "SHP-v4-RecallGateCancel1152-branch-LagB-D2-Medium",
+      "SHP-v4-RestockingReturn1160-multi-LagC-D3-Medium",
+      "SHP-v4-SupplierRecallClosure1202-branch-LagB-D2-Medium",
+      "SHP-v4-TransitEmbargoCancel1158-branch-LagC-D3-Medium",
+      "SHP-v4-TransitHoldClose1132-branch-LagB-D2-Medium",
+      "SHP-v4-TransitSlipClosure1204-multi-LagC-D3-Medium",
+      "SHP-v4-VariantRecallCancel1170-branch-LagC-D3-Short",
+      "SHP-v4-WarrantyReturn1154-loop-LagC-D3-Medium",
+      "SHP-v4-WarrantyReturn1194-loop-LagC-D3-Medium",
+      "SHP-v4-WarrantySlipReturn1206-loop-LagC-D3-Medium"
+    ],
+    "SmartHome": [
+      "SMH-v4-CourierSealConsensus1606-branch-LagB-D2-Medium",
+      "SMH-v4-CourtyardPrivacyClosure1502-branch-LagB-D2-Medium",
+      "SMH-v4-CourtyardPrivacyConcord1612-multi-LagC-D3-Long",
+      "SMH-v4-EnergyFailureWindow1566-multi-LagB-D2-Medium",
+      "SMH-v4-EntryHandback-multi-LagB-D2-Medium",
+      "SMH-v4-EntryRelayCleanup-branch-LagB-D1-Medium",
+      "SMH-v4-GuestPolicySeal1616-multi-LagB-D2-Medium",
+      "SMH-v4-LoadingDockPrivacy1640-branch-LagB-D2-Medium",
+      "SMH-v4-PerimeterPostureRestore1234-loop-LagC-D3-Medium",
+      "SMH-v4-ServiceGateSeal1504-branch-LagB-D2-Short",
+      "SMH-v4-StudioPrivacyClosure1642-multi-LagC-D3-Medium"
+    ],
+    "System": [
+      "SYS-v4-AlertArchiveConcord1644-branch-LagB-D2-Medium",
+      "SYS-v4-AlertPacketAck1414-branch-LagB-D2-Medium",
+      "SYS-v4-AnnotationPromote1364-branch-LagB-D2-Short",
+      "SYS-v4-ArchiveRecoveryExpand1350-multi-LagC-D3-Medium",
+      "SYS-v4-AuthPortsSeal1366-multi-LagC-D3-Medium",
+      "SYS-v4-CheckoutEdgeManifest-branch-LagC-D1-Long",
+      "SYS-v4-DrainBundleCommit1346-loop-LagC-D3-Medium",
+      "SYS-v4-DrainRoutePromote1314-multi-LagC-D3-Medium",
+      "SYS-v4-FolderSeedExpand1456-multi-LagC-D3-Medium",
+      "SYS-v4-LogRouteMove1370-multi-LagC-D3-Medium",
+      "SYS-v4-MaintWindowHold1384-multi-LagC-D3-Medium",
+      "SYS-v4-PatchStageExtract1312-branch-LagB-D2-Medium",
+      "SYS-v4-PostmortemPacketExtract1412-branch-LagB-D2-Medium",
+      "SYS-v4-QuarantineSealRefresh1492-multi-LagC-D3-Long",
+      "SYS-v4-QueueExtract1368-loop-LagC-D3-Medium",
+      "SYS-v4-ScanPacketExpand1462-branch-LagB-D2-Short",
+      "SYS-v4-StageBundleExtract1342-branch-LagB-D2-Short"
+    ],
+    "Travel": [
+      "TRV-v4-A3K9Q7-branch-LagC-D3-Long",
+      "TRV-v4-ArrivalWaiverCancel1216-loop-LagC-D3-Medium",
+      "TRV-v4-CheckinWindowRoute-multi-LagC-D3-Medium",
+      "TRV-v4-HotelCutoffShift1642-branch-LagB-D2-Medium",
+      "TRV-v4-HotelPolicyShift1230-multi-LagB-D2-Medium",
+      "TRV-v4-InsuranceWindowRelay1646-multi-LagC-D3-Medium",
+      "TRV-v4-LoyaltyClose1214-multi-LagB-D2-Medium",
+      "TRV-v4-OverrideCoverage1218-multi-LagB-D2-Medium",
+      "TRV-v4-StormHistoryShift1228-loop-LagC-D3-Medium",
+      "TRV-v4-StormRebookTrail-branch-LagB-D1-Long",
+      "TRV-v4-VisaProfileClosure1226-branch-LagC-D3-Medium",
+      "TRV-v4-X9Q8M2-branch-LagB-D1-Medium"
+    ]
+  }
+}

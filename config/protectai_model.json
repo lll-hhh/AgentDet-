@@ -1,0 +1,6 @@
+{
+  "model_name": "protectai/deberta-v3-base-prompt-injection-v2",
+  "threshold": 0.92,
+  "use_onnx": false,
+  "device": 0
+}

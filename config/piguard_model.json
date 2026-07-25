@@ -1,0 +1,6 @@
+{
+  "model_name": "leolee99/PIGuard",
+  "threshold": 0.5,
+  "trust_remote_code": true,
+  "device": 0
+}

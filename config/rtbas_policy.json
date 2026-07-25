@@ -1,0 +1,31 @@
+{
+  "version": "v1",
+  "screener": "llm_judge",
+  "max_region_chars": 6000,
+  "untrusted_output_patterns": [
+    "^read_",
+    "^search_(email|contacts)$",
+    "^list_(emails|files|tickets)$",
+    "(message|thread|comment|review|note|remark|attachment|document|website|ticket|memo|packet|advisory|caption|text)"
+  ],
+  "private_output_patterns": [
+    "(account|bank|beneficiary|transaction|transfer|wire|payee|recipient)",
+    "(medical|patient|clinician|prescription|lab|insurance|provider|referral)",
+    "(email|contact|traveler_profile|invoice|receipt)"
+  ],
+  "public_sink_patterns": [
+    "^(send_email|send_instant_message|forward_email|reply_email)$",
+    "^(upload_medical_document|write_file|create_file)$",
+    "^(transfer_money|schedule_transfer|add_recipient)$"
+  ],
+  "trusted_output_tools": [
+    "get_device_status",
+    "get_device_capabilities",
+    "get_host_inventory",
+    "get_system_logs",
+    "get_network_status",
+    "get_running_processes",
+    "get_process_tree"
+  ],
+  "untrusted_output_tools": []
+}
